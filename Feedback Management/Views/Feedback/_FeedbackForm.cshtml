@@ -1,0 +1,43 @@
+﻿
+@model FeedbackManagement.Models.Feedback
+@using System.Collections.Generic
+@using System.Web.Mvc
+
+<p>
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+    @Html.ValidationMessageFor(m => m.Name)
+</p>
+
+<p>
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email)
+    @Html.ValidationMessageFor(m => m.Email)
+</p>
+
+<p>
+    @Html.LabelFor(m => m.Message)
+    <br />
+    @Html.TextAreaFor(m => m.Message, 5, 30, null)
+    <br />
+    @Html.ValidationMessageFor(m => m.Message)
+</p>
+
+<p>
+    @Html.LabelFor(m => m.Rating)
+
+    @Html.DropDownListFor(
+        m => m.Rating,
+        new List<SelectListItem>
+        {
+            new SelectListItem { Text = "1 - Poor", Value = "1" },
+            new SelectListItem { Text = "2 - Average", Value = "2" },
+            new SelectListItem { Text = "3 - Good", Value = "3" },
+            new SelectListItem { Text = "4 - Very Good", Value = "4" },
+            new SelectListItem { Text = "5 - Excellent", Value = "5" }
+        },
+        "--Select--"
+    )
+
+    @Html.ValidationMessageFor(m => m.Rating)
+</p>

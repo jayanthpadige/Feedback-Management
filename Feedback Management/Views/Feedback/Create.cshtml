@@ -1,0 +1,17 @@
+﻿
+@model FeedbackManagement.Models.Feedback
+
+@{
+    ViewBag.Title = "Feedback";
+}
+
+<h2>FEEDBACK MANAGEMENT</h2>
+
+@using (Html.BeginForm("Create", "Feedback", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.Partial("_FeedbackForm", Model)
+
+    <input type="submit" value="Submit Feedback" />
+}
